@@ -10,3 +10,4 @@ Street Art ou Street Art é um termo que se popularizou em São Paulo por volta 
 - #### Bem-Vindo a Hidden Places - https://github.com/barbsvit/HIDDEN-PLACES/wiki/Bem-vindo-a-Hidden-Places
 - #### Descrição detalhada da Aplicação - https://github.com/barbsvit/HIDDEN-PLACES/wiki/Descrição-detalhada
 - #### Lista de Widgets - https://github.com/barbsvit/HIDDEN-PLACES/wiki/Lista-de-Widgets
+- #### Desenvolvimento do MVP - https://github.com/barbsvit/HIDDEN-PLACES/wiki/Desenvolvimento-do-MVP
