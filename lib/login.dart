@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_places/feed.dart';
 import 'cadas.dart';
-
-class LoginPage extends StatelessWidget {
+ 
+class Usuario {
+  final String email;
+ 
+  const Usuario (this.email);
+}
+ 
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-
+ 
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+ 
+class _LoginPageState extends State<LoginPage> {
+  String email_usu = '';
+ 
+  @override
+  void initState() {
+    super.initState();
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.only(
           top: 60,
-           left:40,
-            right: 40,),
+          left: 40,
+          right: 40,
+        ),
         color: Colors.black,
         child: ListView(
-          children: <Widget> [
+          children: <Widget>[
             SizedBox(
               width: 128,
               height: 128,
@@ -34,7 +53,15 @@ class LoginPage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-         style: const TextStyle(fontSize: 20, color: Color.fromARGB(255, 250, 250, 250),),
+              onChanged: (value) {
+                setState(() {
+                  email_usu = value;
+                });
+              },
+              style: const TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 250, 250, 250),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -50,11 +77,10 @@ class LoginPage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              style: const TextStyle(fontSize: 20, color: Color.fromARGB(255, 250, 250, 250),),
-            ),
-            Container(
-              height: 40,
-              alignment: Alignment.center,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 250, 250, 250),
+              ),
             ),
             const SizedBox(
               height: 40,
@@ -81,20 +107,26 @@ class LoginPage extends StatelessWidget {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text("Entrar",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color:Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
+                      Text(
+                        "Entrar",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.left,
                       ),
                     ],
-                    ),
-                    onPressed: () {Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyApp()),
-                    );},
+                  ),
+                  onPressed: () {
+                    Usuario email = Usuario(email_usu);
+ 
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MeuApp(),
+                      settings: RouteSettings(arguments: email)),
+                    );
+                  },
                 ),
               ),
             ),
@@ -123,28 +155,29 @@ class LoginPage extends StatelessWidget {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text("Cadastrar-se",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color:Colors.white,
-                        fontSize: 20,
+                      Text(
+                        "Cadastrar-se",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.left,
                       ),
                     ],
-                    ),
-                    onPressed: () {Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const CadasPage()),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CadasPage()),
                     );
-                    }
+                  },
                 ),
               ),
-              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
