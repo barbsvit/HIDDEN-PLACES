@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:hidden_places/faq.dart';
+import 'package:hidden_places/perfil.dart';
 import 'package:hidden_places/teste.dart';
 import 'package:hidden_places/feed.dart';
 
@@ -29,52 +31,61 @@ class ConfiguracoesState extends State<Configuracoes>{
               accountEmail: Text ('Usuario@gmail.com'),
             ),
              ListTile(
-                leading: Icon(Icons.person, color: const Color.fromARGB(255, 233, 255, 32)),
-                title: Text('Meu Perfil',
-                style: TextStyle(color: const Color.fromARGB(255, 233, 255, 32)),
-                ),
-                 onTap: (){
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Teste();
-                  }));
-                }
+              leading: const Icon(Icons.person, color: Color.fromARGB(255, 233, 255, 32)),
+              title: const Text(
+                'Meu Perfil',
+                style: TextStyle(color: Color.fromARGB(255, 233, 255, 32)),
               ),
-              ListTile(
-                leading: Icon(Icons.feed, color: const Color.fromARGB(255, 233, 255, 32)),
-                title: Text('Principal',
-                style: TextStyle(color: const Color.fromARGB(255, 233, 255, 32)),
-                ),
-                 onTap: (){
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return MeuApp();
-                  }));
-                }
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TelaPerfil(); 
+                }));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.feed, color: Color.fromARGB(255, 233, 255, 32)),
+              title: const Text(
+                'Principal',
+                style: TextStyle(color: Color.fromARGB(255, 233, 255, 32)),
               ),
-               ListTile(
-                leading: Icon(Icons.help, color: const Color.fromARGB(255, 233, 255, 32)),
-                title: Text('Dúvidas Frequentes',
-                style: TextStyle(color: const Color.fromARGB(255, 233, 255, 32)),
-                ),
-                 onTap: (){
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Teste();
-                  }));
-                }
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MeuApp(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help, color: Color.fromARGB(255, 233, 255, 32)),
+              title: const Text(
+                'Dúvidas Frequentes',
+                style: TextStyle(color: Color.fromARGB(255, 233, 255, 32)),
               ),
-               ListTile(
-                leading: Icon(Icons.settings, color: const Color.fromARGB(255, 233, 255, 32)),
-                title: Text('Configurações',
-                style: TextStyle(color: const Color.fromARGB(255, 233, 255, 32)),
-                ),
-                onTap: (){
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Configuracoes();
-                  }));
-                }),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FAQApp()), 
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings, color: Color.fromARGB(255, 233, 255, 32)),
+              title: const Text(
+                'Configurações',
+                style: TextStyle(color: Color.fromARGB(255, 233, 255, 32)),
+              ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Configuracoes(); 
+                }));
+              },
+            ),
           ],)
         
         ),
